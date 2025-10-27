@@ -120,3 +120,8 @@ Achievements
   name:Times Ten
   desc:Earn 10k money.
   req:10000 money:earned
+
+*moneyach6
+  name:Hundred Thousand
+  desc:Earn 100k money.
+  req:100000 money:earned
