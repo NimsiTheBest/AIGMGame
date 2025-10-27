@@ -15,6 +15,10 @@ Resources
 name:Money
 desc:This is how much money you got!
 
+*superpoints
+name:Super Points
+desc:Super Points are used to buy Super buildings.
+
 Buildings
 *printer
 name:Printer
@@ -33,9 +37,9 @@ tag:build, laptop
 *superprinter
 name:Super Printer
 desc:This printer is way faster than the older one! Generates 10 money per second
-cost:1000 money
+cost:1000 money, 1 superpoint
 on tick:yield 10 money
-req:5 printer:max
+req:5 printer:max, supershack
 tag:build, printer, super
  
 Upgrades
