@@ -88,6 +88,13 @@ cost:444 money
 req:444 money:max
 passive:increase money yield of makemoney by 9
 
+*clickupgrade3
+name:Extra Fingers
+desc:+27 money per click.
+cost:5555 money
+req:5555 money:max
+passive:increase money yield of makemoney by 27
+
 *supershack
 name:Super Shack
 desc:Unlocks Super points. 
