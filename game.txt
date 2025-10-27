@@ -18,7 +18,7 @@ desc:This is how much money you got!
 Buildings
 *printer
 name:Printer
-desc:A printer that prints money, cool right?? 1 MPS.
+desc:A printer that prints money. Illegal but profitable. 1 MPS.
 cost:100 money
 on tick:yield 1 money
 tag:build, printer
@@ -87,6 +87,12 @@ desc:+9 money per click.
 cost:444 money
 req:444 money:max
 passive:increase money yield of tag:bigButton by 9
+
+*supershack
+name:Super Shack
+desc:Unlocks Super points. 
+cost:1 money
+req:moneyach7
 
 Shinies
 *moneybox
