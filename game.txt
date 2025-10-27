@@ -1,6 +1,6 @@
 Let's make a game!
-  name:Test
-  by:FrenzY
+  name:the game
+  by:Nimsi
 Layout
    use default
 Buttons
@@ -18,36 +18,105 @@ desc:This is how much money you got!
 Buildings
 *printer
 name:Printer
-desc:A printer that prints money, cool right?? Generates 1 money per second
+desc:A printer that prints money, cool right?? 1 MPS.
 cost:100 money
 on tick:yield 1 money
-tag:build
+tag:build, printer
  
-*epicprinter
-name:Epic Printer
+*laptop
+name:Laptop
+desc:The same 3 videos on repeat. 11 MPS.
+cost:1300 money
+on tick:yield 11 money
+tag:build, laptop
+
+*superprinter
+name:Super Printer
 desc:This printer is way faster than the older one! Generates 10 money per second
 cost:1000 money
 on tick:yield 10 money
 req:5 printer:max
-tag:build
+tag:build, printer, super
  
 Upgrades
-*printupgrade
-name:Printer Upgrade
-desc:Makes your printer print money 1.25 times faster!
+*printupgrade1
+name:More Ink
+desc:Doubles the Money yield of Printers.
 cost:500 money
-   passive:multiply money yield of tag:build by 1.25
+passive:multiply money yield of tag:printer by 2
 req:2 printer
+
+*printupgrade2
+name:Printer Stacking
+desc:Stacks printers to be more effective. Every 10 printers, 3x yield for all Printers.
+cost:500 money
+passive:
+	multiply money yield of tag:printer by max(1, floor(printer / 10))
+end
+req:10 printer
  
+*printupgrade3
+name:Even More Ink
+desc:2.5x money from Printers
+cost:2000 money
+passive:
+	multiply money yield of tag:printer by 2.5
+end
+req:15 printer, printupgrade1
+
+*printupgrade4
+name:Computer Wiring
+desc:By connecting the Laptops to the Printers, we can sync them up. Printers gain 5% MPS from Laptops and vice versa.
+cost:500 money
+passive:
+	multiply money yield of tag:printer by laptop * 0.05
+	multiply money yield of tag:laptop by printer * 0.05
+end
+req:15 printer
+
+*clickupgrade1
+name:Click Glove
+desc:+1 money per click.
+cost:50 money
+req:50 money:max
+passive:increase money yield of button by 1 
+
+*clickupgrade2
+name:Metallic Fingertips
+desc:+9 money per click.
+cost:444 money
+req:444 money:max
+passive:increase money yield of button by 9
+
 Shinies
 *moneybox
   name:Money Box
-  on click:yield (random(50,500)) money
+  on click:yield (random((money:ps * 300), (money:ps * 3000))) money
   movement:anywhere
   frequency:60
  
 Achievements
-*moneyach
-  name:Money Total 1
+*moneyach1
+  name:A Story Begins
+  desc:Earn your first Money.
+  req:1 money:earned
+
+*moneyach2
+  name:Upwards Journey
+  desc:Earn 10 Money total
+  req:10 money:earned
+
+*moneyach3
+  name:Large Leagues
   desc:Earn 100 Money total
   req:100 money:earned
+
+*moneyach4
+  name:The Big 1K
+  desc:Earn ONE. THOSUAND. MONEY. I'm proud!
+  req:1000 money:earned
+
+*moneyach5
+  name:Times Ten
+  desc:Earn 10k money.
+  req:10000 money:earned
