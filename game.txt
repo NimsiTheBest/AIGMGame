@@ -14,7 +14,8 @@ Resources
 *money
 name:Money
 desc:This is how much money you got!
- 
+tag:button
+
 Buildings
 *printer
 name:Printer
