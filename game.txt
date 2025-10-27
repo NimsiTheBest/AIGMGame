@@ -125,3 +125,8 @@ Achievements
   name:Hundred Thousand
   desc:Earn 100k money.
   req:100000 money:earned
+
+*moneyach7
+  name:Big One Million
+  desc:Earn 1 million money. The Super Shack has been unlocked!
+  req:1000000 money:earned
