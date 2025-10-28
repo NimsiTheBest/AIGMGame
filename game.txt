@@ -27,6 +27,13 @@ cost:100 money
 on tick:yield 1 money
 tag:build, printer
  
+*printerspawned
+name:Spawned Printer
+desc:This printer was spawned in. 1 MPS.
+no buy
+on tick:yield 1 money
+tag:build, printer
+
 *laptop
 name:Laptop
 desc:The same 3 videos on repeat. 11 MPS.
@@ -36,7 +43,7 @@ tag:build, laptop
 
 *superprinter
 name:Super Printer
-desc:This printer is way faster than the older one! Generates 10 money per second
+desc:This printer PRINTS printers! 25 MPS. Creates a free printer every 50 seconds.
 cost:1000 money, 1 superpoint
 on tick:yield 10 money
 req:5 printer:max, supershack
@@ -73,8 +80,8 @@ name:Computer Wiring
 desc:By connecting the Laptops to the Printers, we can sync them up. Printers gain 5% MPS from Laptops and vice versa.
 cost:500 money
 passive:
-	multiply money yield of tag:printer by laptop * 0.05
-	multiply money yield of tag:laptop by printer * 0.05
+	multiply money yield of tag:printer by 1 + (laptop * 0.05)
+	multiply money yield of tag:laptop by 1 + (printer * 0.05)
 end
 req:15 printer
 
@@ -101,9 +108,18 @@ passive:increase money yield of makemoney by 27
 
 *supershack
 name:Super Shack
-desc:Unlocks Super points. 
+desc:Unlocks Super points. 0.01 SPPS.
 cost:1 money
 req:moneyach7
+passive:show superpoints
+on tick:yield 0.01 superpoints
+
+*superupgrade1
+name:Extra Lights
+desc:Better lighting TRIPLES the MPS of all Super buildings.
+cost:1 superpoint
+req:2 superprinter
+passive:multiply money yield of tag:super by 3
 
 Shinies
 *moneybox
